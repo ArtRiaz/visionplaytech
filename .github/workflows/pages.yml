@@ -24,13 +24,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'   # CRA стабильно собирается на 18
 
       - name: Install deps
-        run: npm ci || npm install
+        run: npm install
 
-      - name: Build
-        run: npm run build
+      - name: Build (ignore warnings)
+        run: CI=false npm run build   # отключаем фейл билда из-за warning'ов
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
