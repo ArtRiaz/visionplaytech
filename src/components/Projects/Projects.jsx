@@ -90,10 +90,10 @@ const Projects = () => {
 						}}
 					>
 						<Box sx={{ flex: 1, textAlign: isMobile ? 'center' : 'left' }}>
-							<Typography variant='h2' style={{ fontSize: isMobile ? '32px' : '44px', color: '#fff', }}>
+							<Typography variant='h2' style={{ fontSize: isMobile ? '32px' : '44px', color: '#00000', }}>
 								Centralized players profile
 							</Typography>
-							<Typography variant='body1' style={{ marginTop: '16px', fontSize: '20px', color: '#fff', }}>
+							<Typography variant='body1' style={{ marginTop: '16px', fontSize: '20px', color: '#000000', }}>
 							All player data is stored in one place: physical performance, health indicators, and psychological state. Coaches, clubs, and academies gain a full picture of each player's development and risks. This allows for more precise training decisions and long-term growth strategies.
 							</Typography>
 						</Box>
@@ -127,7 +127,7 @@ const Projects = () => {
 								flex: 1,
 								textAlign: isMobile ? 'center' : 'left',
 								order: isMobile ? '0' : '2',
-								color: '#fff',
+								color: '#000000',
 							}}
 						>
 							<Typography variant='h2' style={{ fontSize: isMobile ? '32px' : '44px' }}>
