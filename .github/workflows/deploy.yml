@@ -1,0 +1,111 @@
+name: Deploy React App to AWS S3 + CloudFront
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# чтобы параллельные пуши не толкались
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test -- --coverage --watchAll=false
+
+  build-and-deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    # деплоим только на push в main
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build React app
+        env:
+          CI: false  # подавляет превращение warning в error у CRA
+        run: npm run build
+
+      # (опционально) сохраняем билд как артефакт на 5 дней
+      - name: Upload build as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: build
+          retention-days: 5
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # Долгий кэш для статических ассетов (css/js/media), кроме html и sw
+      - name: Upload static assets (long cache)
+        run: |
+          aws s3 sync build/ s3://${{ secrets.S3_BUCKET_NAME }} \
+            --delete \
+            --cache-control "public,max-age=31536000,immutable" \
+            --exclude "*.html" \
+            --exclude "service-worker.js"
+
+      # Короткий кэш только для HTML и service worker
+      - name: Upload HTML + SW (short cache)
+        run: |
+          aws s3 sync build/ s3://${{ secrets.S3_BUCKET_NAME }} \
+            --cache-control "public,max-age=0,must-revalidate" \
+            --exclude "*" \
+            --include "*.html" \
+            --include "service-worker.js"
+
+      # (опционально) совсем отключить кэш SW у клиентов
+      - name: Force no-store for service-worker
+        continue-on-error: true
+        run: |
+          if aws s3 ls s3://${{ secrets.S3_BUCKET_NAME }}/service-worker.js >/dev/null 2>&1; then
+            aws s3 cp s3://${{ secrets.S3_BUCKET_NAME }}/service-worker.js - | \
+            aws s3 cp - s3://${{ secrets.S3_BUCKET_NAME }}/service-worker.js \
+              --cache-control "no-store" \
+              --content-type "application/javascript"
+          fi
+
+      # Инвалидация только ключевых путей (дешевле и быстрее, чем /*)
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/index.html" "/404.html" "/asset-manifest.json" "/"
+
+      - name: Deployment status
+        run: |
+          echo "🚀 Deployment completed successfully!"
+          echo "Your app is available at: https://${{ secrets.CLOUDFRONT_DOMAIN }}"
