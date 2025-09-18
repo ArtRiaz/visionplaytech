@@ -47,7 +47,7 @@ const Popup = ({ open, onClose }) => {
 					Success!
 				</Typography>
 				<Typography variant='body1' sx={{ marginBottom: '34px' }}>
-					Your message has been sent successfully! We will get back to you soon.
+					Your message has been sent successfully! We will get back to you soon!
 				</Typography>
 				<Button
 					onClick={onClose}
