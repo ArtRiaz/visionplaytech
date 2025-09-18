@@ -80,11 +80,11 @@ jobs:
           fi
 
       # Инвалидация только ключевых путей (дешевле и быстрее, чем /*)
-      - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/index.html" "/404.html" "/asset-manifest.json" "/"
+      # - name: Invalidate CloudFront cache
+      #   run: |
+      #     aws cloudfront create-invalidation \
+      #       --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+      #       --paths "/index.html" "/404.html" "/asset-manifest.json" "/"
 
       - name: Deployment status
         run: |
