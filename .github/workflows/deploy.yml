@@ -33,7 +33,6 @@ jobs:
   build-and-deploy:
     needs: test
     runs-on: ubuntu-latest
-    # деплоим только на push в main
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     steps:
@@ -51,7 +50,11 @@ jobs:
 
       - name: Build React app
         env:
-          CI: false  # подавляет превращение warning в error у CRA
+          CI: false
+          # URL твоего вебхука из Make (добавь как GitHub Secret)
+          REACT_APP_WEBHOOK_URL: ${{ secrets.REACT_APP_WEBHOOK_URL }}
+          # Если вебхук в Make защищён API-ключом — раскомментируй и добавь секрет
+          # REACT_APP_MAKE_API_KEY: ${{ secrets.MAKE_WEBHOOK_KEY }}
         run: npm run build
 
       # (опционально) сохраняем билд как артефакт на 5 дней
@@ -109,3 +112,4 @@ jobs:
         run: |
           echo "🚀 Deployment completed successfully!"
           echo "Your app is available at: https://${{ secrets.CLOUDFRONT_DOMAIN }}"
+
