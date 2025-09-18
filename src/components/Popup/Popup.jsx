@@ -62,9 +62,10 @@ const Popup = ({ open, onClose }) => {
 						textTransform: 'uppercase',
 						textAlign: 'center',
 						color: '#0e0b3d',
-						backgroundColor: '#c8ff80',
+						backgroundColor: '#ea580c',
 						'&:hover': {
-							color: '#fff',
+							backgroundColor: '#d0d0d1', color: '#ea580c', transform: 'scale(1.02)'
+							
 						},
 					}}
 				>
