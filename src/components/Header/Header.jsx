@@ -123,15 +123,17 @@ const Header = () => {
 							flexDirection: 'column',
 							alignItems: 'center',
 							cursor: 'pointer',
-							flexGrow: isMobile ? '1' : '0',
+							// ВАЖНО: на мобилке не даём логу растягиваться,
+							// иначе оно тянет компоновку и BOOK DEMO «уплывает» к центру
+							flexGrow: 1,
 						}}
 						onClick={handleTapTapClick}
-					>
-						{/* Иконка логотипа */}
-						<Icons.Logotip/>
-						
-						{/* Надпись под логотипом */}
-						<Typography
+						>
+						{/* Внутренний контейнер только для визуального смещения */}
+						<Box sx={{ transform: isMobile ? 'translateX(-6px)' : 'none' }}>
+							<Icons.Logotip />
+
+							<Typography
 							sx={{
 								fontFamily: 'var(--font-family)',
 								fontWeight: 700,
@@ -141,10 +143,11 @@ const Header = () => {
 								color: '#000000',
 								marginTop: '-15px',
 							}}
-						>
+							>
 							VisionPlay
-						</Typography>
-					</Box>
+							</Typography>
+						</Box>
+						</Box>
 
 					{!isMobile && (
 						<Box

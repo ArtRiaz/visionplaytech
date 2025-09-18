@@ -32,19 +32,42 @@ const MyForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const recaptchaRef = useRef(null);
 
-  const handleFormSubmit = async (values, { resetForm }) => {
-    console.log('Form submitted!', values);
+  // const handleFormSubmit = async (values, { resetForm }) => {
+  //   console.log('Form submitted!', values);
 
-    setIsSubmitting(true);
+  //   setIsSubmitting(true);
 
     // Имитация отправки без ReCAPTCHA и Telegram API
-    setTimeout(() => {
-      console.log('Message sent successfully');
-      resetForm();
-      setIsPopupOpen(true);
-      setIsSubmitting(false);
-    }, 2000);
-  };
+  //   
+  
+  const handleFormSubmit = async (values, { resetForm }) => {
+		try {
+			setIsSubmitting(true);
+			const token = await recaptchaRef.current.executeAsync(); // Execute ReCaptcha
+			const message = `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\nMessage: ${values.message}`;
+			const telegramUrl = `https://api.telegram.org/bot8290751271:AAH5ujcRUnwLwYLYofX78RndxBqIsbQVKNU/sendMessage?chat_id=-1002854201922&text=${encodeURIComponent(
+				message // 1002165150352 or 4542354225
+			)}&captcha_token=${token}`; // Append ReCaptcha token to the request
+
+			const response = await fetch(telegramUrl, {
+				method: 'POST',
+			});
+
+			if (response.ok) {
+				console.log('Message sent successfully');
+			} else {
+				console.error('Failed to send message');
+			}
+		} catch (error) {
+			console.error('Error sending message:', error);
+		}
+
+		resetForm();
+		setIsPopupOpen(true);
+		setTimeout(() => {
+			setIsSubmitting(false);
+		}, 5000);
+	};
 
   const closePopup = () => {
     setIsPopupOpen(false);
