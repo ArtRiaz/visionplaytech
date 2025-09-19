@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import popupIcon from '../../img/popupIcon.png';
+// import popupIcon from '../../img/popupIcon.png';
 import { useTheme, useMediaQuery } from '@mui/material';
+import Icons from '../Icons/Icons.jsx';
 
 const Popup = ({ open, onClose }) => {
 	const theme = useTheme();
@@ -41,7 +42,7 @@ const Popup = ({ open, onClose }) => {
 			>
 				<Box sx={{ marginBottom: '16px' }}>
 					{/* Replace with your icon */}
-					<img src={popupIcon} alt='Icon' width='80' height='80' />
+					<img src={Icons.Logotip} alt='Icon' width='80' height='80' />
 				</Box>
 				<Typography variant='h6' sx={{ marginBottom: '46px', fontWeight: 700 }}>
 					Success!
