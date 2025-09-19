@@ -83,7 +83,7 @@ const About = () => {
 					marginBottom: isMobile ? '35px' : '20px',
 				}}
 			>
-				Core Features of VisionPlay.
+				Core Features of VisionPlay
 			</Typography>
 
 			<Box

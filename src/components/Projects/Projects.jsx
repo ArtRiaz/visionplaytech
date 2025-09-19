@@ -65,11 +65,11 @@ const Projects = () => {
 			>
 				{isMobile ? (
 					<>
-					AI-powered unified platform	<br/> for football development. 
+					AI-powered unified platform	<br/> for football development 
 					</>
 				) : (
 					<>
-						AI-powered unified platform <br/> for football development.
+						AI-powered unified platform <br/> for football development
 					</>
 				)}
 			</Typography>
