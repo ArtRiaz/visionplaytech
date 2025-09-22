@@ -16,7 +16,7 @@ const Goals = () => {
   top: '20%',
   right: 0,
   zIndex: 0,
-  filter: 'hue-rotate(220deg) saturate(1.8) brightness(1.4) grayscale(0.4)',
+  filter: 'saturate(0.2) brightness(1.4) grayscale(0.5)',
  };
 
  const greenCoverStyles = {
