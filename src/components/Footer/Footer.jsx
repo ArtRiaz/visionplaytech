@@ -49,9 +49,9 @@ const Footer = () => {
   ];
 
   const socials = [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/', Icon: Linkedin },
-    { label: 'Telegram', href: 'https://t.me/your_channel', Icon: Send },
-    { label: 'Instagram', href: 'https://www.instagram.com/', Icon: Instagram },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/vision-play/', Icon: Linkedin },
+    { label: 'Telegram', href: 'https://t.me/visionplay_channel', Icon: Send },
+    { label: 'Instagram', href: 'https://www.instagram.com/visionplay_official_?igsh=dHA0NHVlbzl6N3g1&utm_source=qr', Icon: Instagram },
     { label: 'YouTube', href: 'https://www.youtube.com/', Icon: Youtube },
   ];
 
