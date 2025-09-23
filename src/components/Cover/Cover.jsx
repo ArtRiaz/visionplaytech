@@ -80,7 +80,7 @@ const Cover = () => {
 	  };
 
 	  const handleBookACallClick = () => {
-		window.open('https://calendly.com/', '_blank');
+		window.open('https://calendly.com/asriazantsev22/visionplay', '_blank');
 	};
 
 	return (

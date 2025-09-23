@@ -87,7 +87,7 @@ const Policy = () => {
 	return (
 		<Container sx={{ padding: '0px 16px' }}>
 			<Box>
-				<img src={blueCover} alt='Blue Cover' style={blueCoverStyles} />
+				{/* <img src={blueCover} alt='Blue Cover' style={blueCoverStyles} /> */}
 				<Box my={4} sx={{ position: 'relative', zIndex: 1 }}>
 					<Typography variant='h1' component='h1' sx={styles.mainTitle}>
 						Privacy Policy
