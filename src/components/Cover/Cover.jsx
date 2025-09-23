@@ -115,7 +115,7 @@ const Cover = () => {
 <motion.div
 	style={{
 		position: 'absolute',
-		right: '250px',
+		right: '280px',
 		display: isMobile ? 'none' : 'block',
 		filter: 'hue-rotate(25deg) saturate(2) brightness(0.8)',
 		opacity: 0.3,
