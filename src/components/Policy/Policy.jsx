@@ -64,21 +64,21 @@ const Policy = () => {
 		description: {
 			fontWeight: 400,
 			fontSize: '18px',
-			color: '#fff',
+			color: '#000000',
 			marginBottom: isMobile ? '36px' : '54px',
 			zIndex: 1,
 		},
 		secondaryTitle: {
 			fontWeight: 500,
 			fontSize: isMobile ? '32px' : '44px',
-			color: '#fff',
+			color: '#000000',
 			marginBottom: '16px',
 			zIndex: 1,
 		},
 		listItemText: {
 			fontWeight: 700,
 			fontSize: '18px',
-			color: '#fff',
+			color: '#000000',
 			zIndex: 1,
 			display: 'flex',
 		},
@@ -88,7 +88,7 @@ const Policy = () => {
 		<Container sx={{ padding: '0px 16px' }}>
 			<Box>
 				{/* <img src={blueCover} alt='Blue Cover' style={blueCoverStyles} /> */}
-				<Box my={4} sx={{ position: 'relative', zIndex: 1, color: '#000000' }}>
+				<Box my={4} sx={{ position: 'relative', zIndex: 1,}}>
 					<Typography variant='h1' component='h1' sx={styles.mainTitle}>
 						Privacy Policy
 					</Typography>
