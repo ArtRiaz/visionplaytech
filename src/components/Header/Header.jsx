@@ -142,7 +142,7 @@ const Header = () => {
 								letterSpacing: '-0.06em',
 								color: '#000000',
 								marginTop: '-15px',
-								marginLeft: '12px',
+								marginLeft: isMobile ? '8px' : '12px',
 							}}
 							>
 							VisionPlay
