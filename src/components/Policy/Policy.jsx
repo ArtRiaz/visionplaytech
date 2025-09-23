@@ -88,7 +88,7 @@ const Policy = () => {
 		<Container sx={{ padding: '0px 16px' }}>
 			<Box>
 				{/* <img src={blueCover} alt='Blue Cover' style={blueCoverStyles} /> */}
-				<Box my={4} sx={{ position: 'relative', zIndex: 1 }}>
+				<Box my={4} sx={{ position: 'relative', zIndex: 1, color: '#000000' }}>
 					<Typography variant='h1' component='h1' sx={styles.mainTitle}>
 						Privacy Policy
 					</Typography>
@@ -275,7 +275,7 @@ const Policy = () => {
 						at interscoutsport@gmail.com.
 					</Typography>
 				</Box>
-				<img src={greenCover} alt='Green Cover' style={greenCoverStyles} />
+				{/* <img src={greenCover} alt='Green Cover' style={greenCoverStyles} /> */}
 				<img src={whiteCover} alt='White Cover' style={whiteCoverStyles} />
 			</Box>
 		</Container>
