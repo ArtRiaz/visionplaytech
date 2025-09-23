@@ -57,7 +57,7 @@ const Policy = () => {
 			fontSize: isMobile ? '46px' : '74px',
 			letterSpacing: '-0.06em',
 			textTransform: 'capitalize',
-			color: '#fff',
+			color: '#000000',
 			marginBottom: isMobile ? '36px' : '54px',
 			zIndex: 1,
 		},
@@ -88,12 +88,12 @@ const Policy = () => {
 		<Container sx={{ padding: '0px 16px' }}>
 			<Box>
 				{/* <img src={blueCover} alt='Blue Cover' style={blueCoverStyles} /> */}
-				<Box my={4} sx={{ position: 'relative', zIndex: 1,}}>
+				<Box my={4} sx={{ position: 'relative', zIndex: 1}}>
 					<Typography variant='h1' component='h1' sx={styles.mainTitle}>
 						Privacy Policy
 					</Typography>
 					<Typography variant='body1' paragraph sx={styles.description}>
-						Tema ("I") operates tema.cash (the "Site"). This page informs you of our
+						This page informs you of our
 						policies regarding the collection, use, and disclosure of Personal Information
 						we receive from users of the Site. We use your Personal Information only for
 						providing and improving the Site. By using the Site, you agree to the
@@ -272,7 +272,7 @@ const Policy = () => {
 					</Typography>
 					<Typography variant='body1' paragraph sx={styles.description}>
 						If you have any questions or suggestions about my Privacy Policy, contact me
-						at interscoutsport@gmail.com.
+						at visionplay.project@gmail.com.
 					</Typography>
 				</Box>
 				{/* <img src={greenCover} alt='Green Cover' style={greenCoverStyles} /> */}
