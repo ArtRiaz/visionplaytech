@@ -1668,7 +1668,7 @@ const Stade = ({ size = 110 }) => {
 };
 
 
-const Logotip = ({ size = 82 }) => {
+const Logotip = ({ size = 102 }) => {
 	return (
 		<svg
 			width={size}

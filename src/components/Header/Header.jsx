@@ -131,7 +131,7 @@ const Header = () => {
 						>
 						{/* Внутренний контейнер только для визуального смещения */}
 						<Box sx={{ transform: isMobile ? 'translateX(-6px)' : 'none' }}>
-							<Icons.Logotip />
+							<Icons.Logotip/>
 
 							<Typography
 							sx={{
@@ -142,6 +142,7 @@ const Header = () => {
 								letterSpacing: '-0.06em',
 								color: '#000000',
 								marginTop: '-15px',
+								marginLeft: '12px',
 							}}
 							>
 							VisionPlay

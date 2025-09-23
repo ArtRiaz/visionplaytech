@@ -3,7 +3,8 @@ import { Box, Typography, Button } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
 import Icons from '../Icons/Icons.jsx';
-import coverImg from '../../img/blueCover.png';
+// import coverImg from '../../img/blueCover.png';
+import coverImg from '../../img/cover_image.jpg';
 
 const Cover = () => {
 	const theme = useTheme();
@@ -17,10 +18,10 @@ const Cover = () => {
 		position: 'absolute',
 		top: 0,
 		left: isMobile ? '-16px' : '-66px',
-		width: '100%',
-		height: '100%',
-		opacity: '0.5',
-		filter: 'hue-rotate(140deg) saturate(0.7) brightness(2.4)',
+		width: '110%',
+		height: '160%',
+		opacity: '0.15',
+		// filter: 'hue-rotate(140deg) saturate(0.7) brightness(2.4)',
 	};
 
 	{/*const macroChipAnimation = {
@@ -97,7 +98,7 @@ const Cover = () => {
 				boxSizing: 'border-box',
 			}}
 		>
-			<img src={coverImg} alt='Cover' style={coverStyles} />
+			{/* <img src={coverImg} alt='Cover' style={coverStyles} /> */}
 
 			{/*<motion.div
     style={{
@@ -115,7 +116,7 @@ const Cover = () => {
 <motion.div
 	style={{
 		position: 'absolute',
-		right: '280px',
+		right: '350px',
 		display: isMobile ? 'none' : 'block',
 		filter: 'hue-rotate(25deg) saturate(2) brightness(0.8)',
 		opacity: 0.3,
