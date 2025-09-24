@@ -148,7 +148,7 @@ const Goals = () => {
         borderRadius: block.borderRadius,
         padding: '20px',
         height: isMobile ? '440px' : '260px',
-        background: 'rgba(10, 14, 53, 0.32)',
+        background: '#f9f9f9',
         zIndex: 2,
        }}
       >
