@@ -97,7 +97,7 @@ const Cover = () => {
 				boxSizing: 'border-box',
 			}}
 		>
-			<img src={coverImg} alt='Cover' style={coverStyles} />
+			{/* <img src={coverImg} alt='Cover' style={coverStyles} /> */}
 
 			{/*<motion.div
     style={{
