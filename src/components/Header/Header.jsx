@@ -202,34 +202,34 @@ const Header = () => {
 					</motion.div>
 
 					{isMobile && (
-						<>
-							<IconButton
-								edge='start'
-								color='inherit'
-								aria-label='menu'
-								onClick={isMenuOpen ? handleMenuClose : handleMenuOpen}
-							>
-								{isMenuOpen ? <CloseIcon /> : <Icons.Hamburger />}
-							</IconButton>
-							<Menu
-								anchorEl={anchorEl}
-								open={isMenuOpen}
-								onClose={handleMenuClose}
-								PaperProps={{
-									sx: {
+					<>
+						<IconButton
+							edge='start'
+							color='inherit'
+							aria-label='menu'
+							onClick={isMenuOpen ? handleMenuClose : handleMenuOpen}
+						>
+							{isMenuOpen ? <CloseIcon /> : <Icons.Hamburger />}
+						</IconButton>
+						<Menu
+							anchorEl={anchorEl}
+							open={isMenuOpen}
+							onClose={handleMenuClose}
+							PaperProps={{
+								sx: {
 									width: '100%',
 									left: '0!important',
-									height: '100%!important',
+									height: '50vh !important', // половина экрана
 									borderRadius: '24px 24px 0 0',
 									background: 'linear-gradient(314deg, #ff8a3d 43.89%, #d0d0d1 100%)',
 									top: '80px!important',
-									bottom: '0!important',
+									bottom: 'auto !important', // убираем привязку к низу
 									position: 'absolute',
 									right: '0!important',
 									maxWidth: '100%',
-									maxHeight: '100%',
+									maxHeight: '50vh !important', // максимальная высота 50%
 									fontFamily: 'FMTS !important',
-									color: '#fff', // <-- общий цвет текста БЕЛЫЙ
+									color: '#fff',
 									'& *': { fontFamily: 'FMTS !important' },
 									'& ul': {
 										padding: '31px 0 0 0',
@@ -244,36 +244,35 @@ const Header = () => {
 										fontSize: '24px',
 										lineHeight: '133%',
 										textAlign: 'center',
-										color: '#fff', // <-- пункты меню белые
-										'&:hover': {
-										backgroundColor: 'rgba(255,255,255,0.12)',
 										color: '#fff',
+										'&:hover': {
+											backgroundColor: 'rgba(255,255,255,0.12)',
+											color: '#fff',
 										},
 									},
-									},
-								}}
-								>
-								{menuItems.map((item, index) => (
-									<MenuItem key={index} onClick={() => handleLinkClick(item.id)}>
+								},
+							}}
+						>
+							{menuItems.map((item, index) => (
+								<MenuItem key={index} onClick={() => handleLinkClick(item.id)}>
 									<Button
 										sx={{
-										width: '100%',
-										textAlign: 'center',
-										color: '#fff', // <-- кнопка/текст белые
-										fontWeight: 700,
-										fontSize: '24px',
-										textTransform: 'none',
-										'&:hover': { color: '#fff' },
+											width: '100%',
+											textAlign: 'center',
+											color: '#fff',
+											fontWeight: 700,
+											fontSize: '24px',
+											textTransform: 'none',
+											'&:hover': { color: '#fff' },
 										}}
 									>
 										{item.name}
 									</Button>
-									</MenuItem>
-								))}
-								</Menu>
-
-						</>
-					)}
+								</MenuItem>
+							))}
+						</Menu>
+					</>
+				)}
 				</Toolbar>
 			</AppBar>
 		</motion.div>
