@@ -4,7 +4,7 @@ import { useTheme, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
 import Icons from '../Icons/Icons.jsx';
 // import coverImg from '../../img/blueCover.png';
-import coverImg from '../../img/cover_image.jpg';
+import coverImg from '../../img/cover.png';
 
 const Cover = () => {
 	const theme = useTheme();
@@ -17,11 +17,10 @@ const Cover = () => {
 	const coverStyles = {
 		position: 'absolute',
 		top: 0,
-		left: isMobile ? '-16px' : '-66px',
-		width: '110%',
+		left: isMobile ? '-16px' : '-30px',
+		width: '100%',
 		height: '160%',
-		opacity: '0.15',
-		// filter: 'hue-rotate(140deg) saturate(0.7) brightness(2.4)',
+		opacity: '0.12',
 	};
 
 	{/*const macroChipAnimation = {
@@ -98,7 +97,7 @@ const Cover = () => {
 				boxSizing: 'border-box',
 			}}
 		>
-			{/* <img src={coverImg} alt='Cover' style={coverStyles} /> */}
+			<img src={coverImg} alt='Cover' style={coverStyles} />
 
 			{/*<motion.div
     style={{

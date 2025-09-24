@@ -16,7 +16,7 @@ const Goals = () => {
   top: '20%',
   right: 0,
   zIndex: 0,
-  filter: 'saturate(0.2) brightness(0.8) grayscale(0.5)',
+  // filter: 'saturate(0.2) brightness(0.8) grayscale(0.5)',
  };
 
  const greenCoverStyles = {
@@ -100,8 +100,8 @@ const Goals = () => {
 	 />
   
 	 {/* Background Covers */}
-	 <img src={greenCover} alt='Green Cover' style={greenCoverStyles} />
-	 <img src={whiteCover} alt='White Cover' style={whiteCoverStyles} />
+	 {/* <img src={greenCover} alt='Green Cover' style={greenCoverStyles} />
+	 <img src={whiteCover} alt='White Cover' style={whiteCoverStyles} /> */}
 
 	 {/* Main Block */}
 	 <Box

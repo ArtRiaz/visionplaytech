@@ -52,7 +52,7 @@ const About = () => {
 		<Box
 			id='about' data-aos="fade-up"
 			sx={{
-				background: 'linear-gradient(314deg, #ffffff 0%, #d0d0d1 100%)',
+				// background: 'linear-gradient(314deg, #ffffff 0%, #d0d0d1 100%)',
 				padding: '80px 16px 130px 16px',
 				display: 'flex',
 				flexDirection: 'column',
