@@ -3,7 +3,7 @@ import { Box, Typography, Grid } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
 import AnMob from '../../img/anMob.png';
 import ProImg from '../../img/pro.png';
-import UniImg from '../../img/united.png';
+import UniImg from '../../img/uni.png';
 import AnlImg from '../../img/analytics.png';
 import HelImg from '../../img/health.png';
 import AImg from '../../img/ai.png';
