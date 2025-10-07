@@ -6,7 +6,7 @@ import Popup from '../Popup/Popup';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const WEBHOOK_URL = 'https://hook.eu2.make.com/tcfme6layvbaawklt8hd8pgyk3puqk3j'; // ← ВСТАВЬ СВОЙ URL!
+const WEBHOOK_URL = 'https://hook.eu2.make.com/8hlkeps0q3x6p0rifxq3eh1q91o18dmx';
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Name is required').min(2, 'Name must be at least 2 characters long'),
